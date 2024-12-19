@@ -1,1 +1,55 @@
 
+Thought #1: present node and search for the required node 
+  Issue #1:
+Thought #2:
+  Issue #2:
+Thought #3:
+  Issue #3:
+
+Approach: inorder traversal then we get it in an increasing form and then we can do the two pointer 
+
+Code: 
+# Definition for a  binary tree node
+# class TreeNode:
+#	def __init__(self, x):
+#		self.val = x
+#		self.left = None
+#		self.right = None
+
+class Solution:
+	# @param A : root node of tree
+	# @param B : integer
+	# @return an integer
+	def t2Sum(self, A, B):
+        
+        stack1 = []
+        stack2 = []
+        current1 = A
+        current2 = A
+
+        while (((len(stack1) > 0) or current1) or (len(stack2) > 0) or current2):
+            if (current1 or current2):
+                if (current1):
+                    stack1.append(current1)
+                    current1 = current1.left
+                if (current2):
+                    stack2.append(current2)
+                    current2 = current2.right
+            else:
+                if (len(stack1) == 0 or len(stack2) == 0):
+                    break
+                node1 = stack1[-1]
+                node2 = stack2[-1]
+
+                sum = node1.val + node2.val
+                if (node1.val == node2.val):
+                    return 0
+                elif (sum == B):
+                    return 1
+                elif (sum < B):
+                    stack1.pop()
+                    current1 = node1.right
+                else:
+                    stack2.pop()
+                    current2 = node2.left
+        return 0
