@@ -1,0 +1,4 @@
+1. Traverse the Binary search Tree starting from the root
+2. If the node has been visited then check if the node lies in the range or not 
+3. If it lies then we add 1 and continue the process with the child nodes 
+4. If the node is smaller then do the recurssive on the right child else on the left child 
