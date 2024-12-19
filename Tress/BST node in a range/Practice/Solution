@@ -2,3 +2,16 @@
 2. If the node has been visited then check if the node lies in the range or not 
 3. If it lies then we add 1 and continue the process with the child nodes 
 4. If the node is smaller then do the recurssive on the right child else on the left child 
+
+
+Code:
+
+def BST(A,B,C):
+  if not A:
+    return 0
+  if A.val<B:
+    return BST(A.right,B,C)
+  if A.val>C:
+    return BST(A.left,B,C)
+  return 1+ BST(A.right,B,C) + BST(A.left,B,C)
+
