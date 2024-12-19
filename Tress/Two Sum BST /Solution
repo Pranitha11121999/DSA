@@ -1,6 +1,6 @@
 Problem Description:
 
-Given a binary search tree A, where each node contains a positive integer, and an integer B, you have to find whether or not there exist two different nodes X and Y such that X.value + Y.value = B. Return 1 to denote that two such nodes exist. Return 0, otherwise.
+Given a binary search tree A, where each node contains a positive integer and an integer B, you have to find whether or not there exist two different nodes, X and Y, such that X.value + Y.value = B. Return 1 to denote that two such nodes exist. Return 0, otherwise.
 
 Problem Constraints:
 
@@ -20,6 +20,50 @@ Output Format:
 
 Return 1 if such a pair can be found, 0 otherwise.
 
-Algorithm:
+Algorithm: inorder Traversel leads to arry in increasing order then we can work on the 2 pointer approach using Stacks
 
 Code:
+# Definition for a  binary tree node
+# class TreeNode:
+#	def __init__(self, x):
+#		self.val = x
+#		self.left = None
+#		self.right = None
+
+class Solution:
+	# @param A : root node of tree
+	# @param B : integer
+	# @return an integer
+	def t2Sum(self, A, B):
+        
+        stack1 = []
+        stack2 = []
+        current1 = A
+        current2 = A
+
+        while (((len(stack1) > 0) or current1) or (len(stack2) > 0) or current2):
+            if (current1 or current2):
+                if (current1):
+                    stack1.append(current1)
+                    current1 = current1.left
+                if (current2):
+                    stack2.append(current2)
+                    current2 = current2.right
+            else:
+                if (len(stack1) == 0 or len(stack2) == 0):
+                    break
+                node1 = stack1[-1]
+                node2 = stack2[-1]
+
+                sum = node1.val + node2.val
+                if (node1.val == node2.val):
+                    return 0
+                elif (sum == B):
+                    return 1
+                elif (sum < B):
+                    stack1.pop()
+                    current1 = node1.right
+                else:
+                    stack2.pop()
+                    current2 = node2.left
+        return 0
