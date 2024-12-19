@@ -1,0 +1,15 @@
+Task:
+
+Binary search in a given range.
+
+Thoughts #1: Convert the tree in post order 
+  Issue #1: Range miss match What if the range doesn't lie between the left and right but lies elsewhere 
+Thoughts #2: Take the least element. If the root of the root falls in the range, then we have the number of one of the children.
+  Issue #2
+Thoughts #3: post order, we might get  in a range that converts a tree to an array, and then we can do the range in the array 
+
+
+How:
+1. How can we search, If we don't get it continuously, then how can we search?
+2. How to code?
+
