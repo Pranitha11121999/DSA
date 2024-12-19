@@ -6,10 +6,28 @@ Thoughts #1: Convert the tree in post order
   Issue #1: Range miss match What if the range doesn't lie between the left and right but lies elsewhere 
 Thoughts #2: Take the least element. If the root of the root falls in the range, then we have the number of one of the children.
   Issue #2
+  Validation: This method is correct 
 Thoughts #3: post order, we might get  in a range that converts a tree to an array, and then we can do the range in the array 
+  Issue #3: Not optimized 
 
 
 How:
 1. How can we search, If we don't get it continuously, then how can we search?
 2. How to code?
 
+
+1. Traverse the Binary search Tree starting from the root
+2. If the node has been visited, then check if the node lies in the range or not 
+3. If it lies, then we add 1 and continue the process with the child nodes 
+4. If the node is smaller, then do the recursive on the right child else on the left child 
+
+Code :
+1. Traverse the Binary Search Tress from the root:
+  How to code:
+    So here we are traversing from the root, so we have to save the root in any variable or a condition like:
+      if Node is NULL:
+          return None 
+      if Node is in [B, C]:
+          count+=1
+      if Node < B":
+        (How to write the recursive form)
