@@ -1,0 +1,4 @@
+ -- According to the question the s and p if it matches then return true
+-- How can we know or compare them ?
+-- the p has character, . , * can we use them to know whats happening in s
+-- keep the characters in s in a stack, iterate through p if its character and it matches head fine otherwise if its *check the present and the previous 
